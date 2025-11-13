@@ -20,11 +20,11 @@ jobs:
 
       - name: Install Zensical
         run: |
-          uv pip install --upgrade pip zensical
+          uv pip install --python 3.11 --upgrade pip zensical
 
       - name: Build site
         run: |
-          uv run zensical build
+          uv run --python 3.11 zensical build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
