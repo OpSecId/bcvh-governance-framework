@@ -1,0 +1,11 @@
+[project]
+name = "bcvh-governance-framework"
+version = "0.1.0"
+description = "BCVH governance documentation build configuration"
+requires-python = ">=3.11"
+dependencies = [
+    "zensical",
+]
+
+[tool.uv]
+
