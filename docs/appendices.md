@@ -43,3 +43,38 @@ flowchart LR
 - **Update Cycle:** Reviewed quarterly by the BCVH program office, or sooner in response to major protocol, legislative, or risk changes.
 - **Amendment Process:** Proposed changes are circulated for provincial stakeholder comment (minimum 10 business days), ratified by the BCVH governance authority, and published with bilingual support.
 
+## Appendix D — WebVH Deployment Diagram
+
+``` mermaid
+flowchart LR
+    User[Issuer / Verifier Admin] --> UIFrontend["Tenant UI Frontend"]
+    UIFrontend --> TenantProxy["Tenant Proxy"]
+    TenantProxy --> ACApy["Traction ACA-Py Agent"]
+
+    subgraph Traction["Traction Platform"]
+        UIFrontend
+        TenantProxy
+        ACApy
+    end
+
+    subgraph WitnessService["Witness Service"]
+        EndorserAPI["Endorser API"]
+        WitnessAgent["Witness Agent"]
+    end
+
+    subgraph WebVH["WebVH Server"]
+        WebVHService["WebVH API"]
+    end
+
+    subgraph WatcherLayer["Watcher Service"]
+        Watcher["Watcher Worker"]
+    end
+
+    EndorserAPI --> WitnessAgent
+    WitnessAgent -. webhooks .-> EndorserAPI
+    WitnessAgent -. "DIDComm connection" .- ACApy
+    ACApy --> WebVHService
+    ACApy --> Watcher
+    Watcher --> WebVHService
+```
+
