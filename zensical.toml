@@ -76,6 +76,8 @@ nav = [
 # Section for configuring theme options
 # ----------------------------------------------------------------------------
 [project.theme]
+variant = "classic"
+logo = "assets/images/bcid-logo.png"
 
 # change this to "classic" to use the traditional Material for MkDocs look.
 #variant = "classic"
@@ -98,7 +100,7 @@ nav = [
 # - https://zensical.org/docs/setup/logo-and-icons/#favicon
 # - https://developer.mozilla.org/en-US/docs/Glossary/Favicon
 #
-#favicon = "assets/images/favicon.png"
+favicon = "assets/images/bcid-favicon.ico"
 
 # Zensical supports more than 60 different languages. This means that the
 # labels and tooltips that Zensical's templates produce are translated.
@@ -264,11 +266,15 @@ features = [
 # ----------------------------------------------------------------------------
 [[project.theme.palette]]
 scheme = "default"
+primary = "#e3a82b"
+accent = "#234075"
 toggle.icon = "lucide/sun"
 toggle.name = "Switch to dark mode"
 
 [[project.theme.palette]]
 scheme = "slate"
+primary = "#234075"
+accent = "#e3a82b"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
 
@@ -297,10 +303,6 @@ toggle.name = "Switch to light mode"
 # - https://zensical.org/docs/setup/logo-and-icons
 # - https://zensical.org/docs/authoring/icons-emojis/#search
 # ----------------------------------------------------------------------------
-#[project.theme.icon]
-#logo = "lucide/smile"
-#repo = "lucide/smile"
-
 # ----------------------------------------------------------------------------
 # The "extra" section contains miscellaneous settings.
 # ----------------------------------------------------------------------------
